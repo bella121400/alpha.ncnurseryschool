@@ -1,0 +1,1079 @@
+@charset "UTF-8";
+
+//컬러시스템
+$pri-color-1: #ffffff;
+$pri-color-2: #bdb6b8;
+$pri-color-3: #f7f0e6;
+
+$sec-color-1: #2384f5;
+$sec-color-2: #22bca5; //X
+$sec-color-3: #f5805a;
+$sec-color-4: #fcb30f;
+
+$point-color-1: #804f31;
+$point-color-2: #3d2a2f;
+$point-color-3: #3e2a2f;
+
+//변수선언
+$slogan: 60px;
+$mainTitle: 50px;
+$subTitle: 32px;
+$heading: 28px;
+$heavyTitle: 24px;
+$contTitle: 18px;
+$txtMedium: 16px;
+$txtNormal: 14px;
+$txtSmall: 13px;
+
+//문자열변수
+$mobile: "screen and (max-width:640px)";
+
+#wrap {
+  position: relative;
+  min-width: 1200px; //pc대응
+
+  @media #{$mobile} {
+    min-width: 100%;
+  }
+}
+
+//end of #wrap
+
+header {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+
+  z-index: 1000;
+
+  // border: 1px solid #000;
+  @media #{$mobile} {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background-color: $sec-color-3;
+  }
+
+  > .container {
+    position: relative;
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-top: 20px;
+
+    @media #{$mobile} {
+      width: 100%;
+      min-width: initial;
+      padding-top: 0;
+      // background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    > .logo {
+      width: 311px;
+      margin-top: 30px;
+      background-image: url(./../images/logo/logo.svg);
+      background-repeat: no-repeat;
+      background-position: left center;
+
+      @media #{$mobile} {
+        margin: 0 auto;
+        background-position: center center;
+        transform: scale(0.6);
+      }
+
+      > a {
+        display: block;
+        height: 106px;
+        text-indent: -9999px;
+
+        @media #{$mobile} {
+          height: 80px;
+        }
+      }
+    }
+
+    //end of .logo
+
+    > .btn_gnb {
+      display: none;
+      position: absolute;
+      left: 36px;
+      top: 20px;
+      width: 24px;
+      cursor: pointer;
+
+      > .line {
+        display: block;
+        height: 2px;
+        margin: 8px 0;
+        background-color: $pri-color-1;
+        transition: all 0.3s ease-in-out;
+
+        &:nth-child(2) {
+          width: 20px;
+        }
+      }
+
+      //end of .line
+
+      @media #{$mobile} {
+        display: block;
+      }
+    }
+
+    //end of .btn_gnb
+
+    > nav {
+      position: absolute;
+      right: 0;
+      top: 50%;
+
+      @media #{$mobile} {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: -1;
+      }
+
+      > .gnb {
+        display: flex;
+
+        @media #{$mobile} {
+          flex-direction: column;
+          width: 60%;
+          height: 100vh;
+          margin-left: -100%;
+          background-color: $pri-color-1;
+        }
+
+        > li {
+          // overflow: hidden;
+          position: relative;
+          margin-right: 3px;
+
+          @media #{$mobile} {
+            margin-right: 0;
+            border-bottom: 1px solid $pri-color-2;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &.on,
+          &:hover {
+            > a {
+              color: #222;
+              background-color: $pri-color-1;
+              border-radius: 25px;
+
+              &:after {
+                color: #222;
+                background-image: url(./../images/menu/ico_nav_arrow_h.svg);
+                transform: rotate(180deg);
+              }
+            }
+          }
+
+          > a {
+            display: block;
+            position: relative;
+            padding: 10px 40px 10px 22px;
+            color: $pri-color-1;
+            font-weight: 600;
+            font-size: $contTitle;
+
+            @media #{$mobile} {
+              height: 50px;
+              font-size: 24px;
+              line-height: 50px;
+              color: #222;
+            }
+
+            &:after {
+              display: block;
+              position: absolute;
+              right: 20px;
+              top: 50%;
+              width: 9px;
+              height: 5px;
+              margin-top: -3px;
+              background-image: url(./../images/menu/ico_nav_arrow.svg);
+              content: "";
+
+              @media #{$mobile} {
+                background-image: url(./../images/menu/ico_nav_arrow_h.svg);
+              }
+            }
+          }
+
+          //end of a
+
+          > .lnb {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 36px;
+            width: 185px;
+            padding-top: 10px;
+            // background-color: #fff;
+            border-radius: 10px;
+
+            @media #{$mobile} {
+              position: initial;
+              width: 100%;
+              padding: 20px 0;
+              border-top: 1px solid $pri-color-2;
+              border-radius: 0;
+            }
+
+            > li {
+              overflow: hidden;
+              border-bottom: 1px solid $pri-color-2;
+              background-color: $pri-color-1;
+
+              @media #{$mobile} {
+                border: none;
+              }
+
+              &:first-child {
+                border-radius: 10px 10px 0 0;
+
+                @media #{$mobile} {
+                  border-radius: 0;
+                }
+              }
+
+              &:last-child {
+                border: none;
+                border-radius: 0 0 10px 10px;
+
+                @media #{$mobile} {
+                  border-radius: 0;
+                }
+              }
+
+              > a {
+                display: flex;
+                text-indent: 20px;
+                align-items: center;
+                height: 50px;
+                font-size: $txtNormal;
+
+                @media #{$mobile} {
+                  font-size: 16px;
+                  height: 40px;
+                }
+
+                &:hover {
+                  color: $pri-color-1;
+                  background-color: $point-color-3;
+
+                  @media #{$mobile} {
+                    color: #222;
+                    background-color: $pri-color-2;
+                  }
+                }
+              }
+
+              //end of a
+            }
+
+            //end of li
+          }
+
+          //end of .lnb
+        }
+
+        //end of li
+      }
+
+      //end of .gnb
+
+      > button.clse {
+        display: none;
+
+        @media #{$mobile} {
+          background: none;
+          border: none;
+          outline: none;
+
+          display: block;
+          position: absolute;
+          left: 62%;
+          top: 20px;
+          width: 72px;
+          height: 72px;
+          margin-left: -100%;
+          text-indent: -9999px;
+          background-image: url(./../images/menu/ico_close_w.png);
+          z-index: 1000;
+        }
+      }
+
+      //end of .clse
+    }
+
+    //end of nav
+  }
+
+  //end of .container
+}
+
+//end of header
+
+section {
+  width: 100%;
+  height: 3300px;
+
+  @media #{$mobile} {
+    min-width: 100%;
+    height: 3700px;
+  }
+
+  > .slides {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 950px;
+
+    background-image: url(./../images/slide/bg_main_slide.png);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @media #{$mobile} {
+      width: 100%;
+      height: 600px;
+      background-position: 0 530px;
+      background-size: contain;
+      // border: 1px solid #000;
+    }
+
+    > h2 {
+      position: absolute;
+      left: 12%;
+      top: 50%;
+      margin-top: -10%;
+
+      color: $pri-color-1;
+      font-weight: 300;
+      font-size: $heavyTitle;
+
+      @media #{$mobile} {
+        position: absolute;
+        top: 35%;
+      }
+
+      > span {
+        display: block;
+        margin-top: 30px;
+        color: $pri-color-1;
+        font-weight: 500;
+        font-size: $slogan;
+        line-height: 80px;
+
+        @media #{$mobile} {
+          font-size: $subTitle;
+          line-height: 60px;
+        }
+      }
+    }
+
+    //end of h2
+
+    > .slides-container {
+      display: flex;
+      position: absolute;
+      left: 0%;
+      top: 0;
+
+      /* 
+			 	left : -(100*nowIdx) + '%'
+
+				첫번째 슬라이드	0%				-100*0 + '%'
+				두번째 슬라이드	-100%			-100*1 + '%'
+				세번째 슬라이드	-100%			-100*1 + '%'
+				네번째 슬라이드	-100%			-100*1 + '%'
+			*/
+
+      width: 400%;
+      z-index: -1;
+
+      > li {
+        width: 25%;
+        height: 860px;
+        text-indent: -9999px;
+
+        background-position: center center;
+        background-size: cover;
+
+        @media #{$mobile} {
+          width: 25%;
+          height: 610px;
+        }
+
+        &.on {
+        }
+
+        &:nth-child(1) {
+          display: block;
+          background-image: url(./../images/slide/1.png);
+        }
+
+        &:nth-child(2) {
+          display: block;
+          background-image: url(./../images/slide/2.png);
+        }
+
+        &:nth-child(3) {
+          display: block;
+          background-image: url(./../images/slide/3.png);
+        }
+
+        &:nth-child(4) {
+          display: block;
+          background-image: url(./../images/slide/4.png);
+        }
+      }
+
+      //end of li
+    }
+
+    //end of .slides-container
+    > .slides-pagination {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      left: 13%;
+      top: 70%;
+      width: 130px;
+
+      @media #{$mobile} {
+        position: absolute;
+        top: 70%;
+      }
+
+      > li {
+        > a {
+          display: block;
+          position: relative;
+          width: 8px;
+          height: 8px;
+          text-indent: -9999px;
+          background-color: $pri-color-1;
+          border-radius: 50%;
+        }
+
+        //end of a
+
+        &.on > a:after {
+          display: block;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 26px;
+          height: 26px;
+          margin: -14px 0 0 -14px;
+          border: 1px solid $pri-color-1;
+          border-radius: 50%;
+          content: "";
+        }
+      }
+
+      //end of li
+    }
+
+    //end of .slides-pagination
+    > .slides-navigation {
+      display: block;
+      position: absolute;
+      top: 50%;
+      margin-top: -5%;
+      width: 70px;
+      height: 100px;
+      text-indent: -9999px;
+      background-color: rgba(21, 21, 21, 0.3);
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      @media #{$mobile} {
+        display: none;
+      }
+
+      &:hover {
+        background-color: rgba(21, 21, 21, 1);
+      }
+
+      &.slides-prev {
+        left: 0;
+        background-image: url(./../images/slide/ico_slide_prev.svg);
+        border-radius: 0 10px 10px 0;
+      }
+
+      &.slides-next {
+        right: 0;
+        background-image: url(./../images/slide/ico_slide_next.svg);
+        border-radius: 10px 0 0 10px;
+      }
+
+      > i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $slogan;
+        line-height: 100px;
+      }
+    }
+
+    //end of .slides-navigation
+  }
+
+  //end of .slides
+
+  > .place {
+    display: block;
+    position: relative;
+    padding-bottom: 80px;
+
+    @media #{$mobile} {
+      width: 100%;
+      padding-top: 30px;
+      padding-bottom: 80px;
+      // border: 1px solid #000;
+    }
+
+    > h2 {
+      height: 320px;
+
+      color: $sec-color-1;
+      font-size: $mainTitle;
+      text-align: center;
+
+      background-image: url(./../images/place/kids.webp);
+      background-repeat: no-repeat;
+      background-position: center bottom;
+
+      @media #{$mobile} {
+        height: 220px;
+        font-size: $mainTitle;
+        background-size: contain;
+      }
+    }
+
+    > p {
+      display: block;
+      height: 20px;
+      padding-bottom: 20px;
+      color: $sec-color-1;
+      font-size: $heading;
+      line-height: 20px;
+      text-align: center;
+
+      @media #{$mobile} {
+        padding: 20px;
+        font-size: $contTitle;
+      }
+    }
+
+    > .slides_2 {
+      display: flex;
+      flex-flow: row nowrap;
+
+      width: calc(150px * 11);
+      margin: 0 auto;
+
+      @media #{$mobile} {
+        display: initial;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        //border: 1px solid #000;
+      }
+
+      > p {
+        overflow: hidden;
+
+        width: 150px;
+        transition: all 0.3s;
+
+        @media #{$mobile} {
+          display: initial;
+        }
+
+        &:hover {
+          width: 470px;
+          border: 3px solid $sec-color-3;
+          background-color: $sec-color-3;
+
+          @media #{$mobile} {
+            width: 150px;
+            border: none;
+            background: none;
+          }
+        }
+
+        > a {
+          display: block;
+          color: $sec-color-1;
+          font-weight: 500;
+          font-size: $txtMedium;
+          text-align: right;
+
+          @media #{$mobile} {
+            height: 188px;
+            text-indent: -9999px;
+          }
+
+          > img {
+            display: block;
+
+            @media #{$mobile} {
+              width: 100%;
+            }
+          }
+
+          //end of img
+        }
+
+        //end of a
+      }
+
+      //end of p
+    }
+
+    //end of .slides_2
+  }
+
+  //end of .place
+  > .object {
+    display: block;
+    height: 450px;
+    padding: 80px 200px;
+    background-color: $pri-color-3;
+    background-image: url(./../images/object_kids.png);
+    background-position: 1200px 60px;
+    background-size: 500px 479px;
+    background-repeat: no-repeat;
+
+    @media #{$mobile} {
+      width: 100%;
+      padding: 50px 20px;
+      height: 370px;
+      background-image: none;
+      box-sizing: border-box;
+    }
+
+    > h2 {
+      height: 30px;
+      color: $point-color-2;
+      font-size: $heading;
+      line-height: 30px;
+
+      background-image: url(./../images/logo/favicon-32x32.png);
+      background-position: 130px 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @media #{$mobile} {
+        width: 100%;
+      }
+    }
+
+    > p {
+      padding-top: 80px;
+
+      @media #{$mobile} {
+        display: block;
+        width: 100%;
+        padding-top: 20px;
+      }
+
+      &:nth-of-type(1) {
+        color: $point-color-2;
+        font-size: $heavyTitle;
+        line-height: 50px;
+
+        @media #{$mobile} {
+          br {
+            display: none;
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        color: $point-color-1;
+        font-size: $contTitle;
+        line-height: 30px;
+
+        @media #{$mobile} {
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  //end of .object
+
+  //end of .object
+  > .news {
+    display: block;
+    position: relative;
+
+    padding: 80px 0;
+
+    @media #{$mobile} {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    > h2 {
+      height: 100px;
+      padding-bottom: 50px;
+      color: $point-color-2;
+      font-size: $mainTitle;
+      text-align: center;
+
+      @media #{$mobile} {
+        padding-bottom: 0;
+      }
+    }
+
+    //end of h2
+    > div {
+      display: flex;
+      justify-content: space-between;
+      width: 1650px;
+      margin: 0 auto;
+
+      @media #{$mobile} {
+        display: block;
+        width: 100%;
+      }
+
+      > figure {
+        @media #{$mobile} {
+          width: 100%;
+          margin-left: 16%;
+        }
+
+        > .frame {
+          overflow: hidden;
+          width: 330px;
+          height: 230px;
+
+          > a {
+            display: block;
+
+            > img {
+              display: block;
+              width: 330px;
+              height: 230px;
+              border: 2px solid $point-color-2;
+            }
+          }
+
+          //end of a
+        }
+
+        //end of .frame
+        > figcaption {
+          width: 330px;
+          margin-top: 10px;
+
+          @media #{$mobile} {
+            margin-bottom: 20px;
+          }
+
+          a {
+            display: block;
+
+            > h3 {
+              height: 80px;
+              color: $point-color-2;
+              font-size: $heavyTitle;
+              line-height: 30px;
+
+              @media #{$mobile} {
+                height: 60px;
+              }
+            }
+
+            > time {
+              display: flex;
+              justify-content: flex-end;
+              color: $point-color-1;
+              font-weight: 500;
+              font-size: $txtMedium;
+            }
+          }
+
+          //end of a
+        }
+
+        //end of figcaption
+      }
+
+      //end of figure
+    }
+
+    //end of div
+  }
+
+  //end of .news
+}
+
+//end of section
+
+footer {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 200px;
+  min-width: 1200px;
+
+  color: $pri-color-2;
+
+  background-color: $point-color-3;
+  // border: 1px solid #000;
+
+  @media #{$mobile} {
+    min-width: 100%;
+    height: 350px;
+  }
+
+  > .info {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    > .container {
+      display: flex;
+
+      padding: 50px 100px;
+      color: $pri-color-2;
+
+      @media #{$mobile} {
+        display: block;
+      }
+
+      > h2 {
+      }
+
+      //end of h2
+      > img {
+        display: block;
+        position: absolute;
+        left: 10%;
+        top: 35%;
+      }
+
+      //end of img
+
+      > .contact {
+        display: block;
+        position: absolute;
+        left: 30%;
+        top: 35%;
+        height: 100px;
+        font-size: $txtMedium;
+
+        @media #{$mobile} {
+          position: absolute;
+          left: 10%;
+          top: 150px;
+
+          margin: 30px 0;
+          // border: 1px solid #000;
+        }
+
+        > address {
+          display: block;
+          width: 600px;
+          line-height: 30px;
+
+          @media #{$mobile} {
+            width: 350px;
+          }
+
+          > .bar {
+            font-size: $txtSmall;
+          }
+        }
+
+        //end of address
+
+        > a {
+          display: inline-block;
+          margin-right: 30px;
+          color: $pri-color-2;
+          line-height: 30px;
+
+          @media #{$mobile} {
+            display: block;
+          }
+
+          > .bar {
+            font-size: $txtSmall;
+          }
+        }
+
+        > p {
+          opacity: 0.5;
+        }
+      }
+
+      //end of .contact
+    }
+
+    //end of .container
+
+    > .sites {
+      display: block;
+      position: absolute;
+      top: 35%;
+      right: 20%;
+
+      width: 100px;
+
+      @media #{$mobile} {
+        position: absolute;
+        left: 10%;
+        top: 100px;
+      }
+
+      > li {
+        width: 200px;
+        height: 50px;
+
+        background-color: $pri-color-2;
+
+        //border: 1px solid #000;
+
+        @media #{$mobile} {
+          width: 350px;
+        }
+
+        &.on,
+        &:hover {
+          background-color: $sec-color-4;
+
+          @media #{$mobile} {
+          }
+        }
+
+        > a {
+          display: block;
+          margin-left: 20px;
+          font-size: $txtMedium;
+          line-height: 50px;
+          color: $pri-color-1;
+
+          @media #{$mobile} {
+            text-align: center;
+          }
+
+          > i {
+            margin-left: 20px;
+          }
+        }
+
+        > .site {
+          display: none;
+          margin-top: 10px;
+
+          > li {
+            display: block;
+            background-color: $pri-color-2;
+
+            &:hover {
+              background-color: $sec-color-4;
+            }
+
+            &:nth-of-type(1) > a {
+              border-bottom: 1px solid $point-color-2;
+            }
+
+            > a {
+              display: block;
+              height: 50px;
+              padding-left: 20px;
+              font-size: $txtNormal;
+              line-height: 50px;
+              color: $pri-color-1;
+
+              @media #{$mobile} {
+                text-align: center;
+                padding-left: 0;
+              }
+            }
+          }
+        }
+
+        //end of .site
+      }
+
+      //end of li
+    }
+
+    //end of .site
+  }
+
+  //end of .info
+}
+
+//end of footer
+
+aside {
+  display: block;
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  z-index: 1000;
+
+  @media #{$mobile} {
+    left: 50%;
+  }
+
+  > a {
+    display: block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background-color: $sec-color-4;
+
+    @media #{$mobile} {
+      width: 40px;
+      height: 40px;
+      line-height: 45px;
+      text-align: center;
+      border-radius: 50px;
+      background-color: $pri-color-2;
+    }
+
+    > i {
+      @media #{$mobile} {
+        color: $pri-color-1;
+        font-size: $heavyTitle;
+      }
+    }
+
+    //end of i
+  }
+
+  //end of a
+}
+
+//end of aside
